@@ -1,6 +1,7 @@
 package com.example.istegelsin.presentation.product
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.istegelsin.databinding.HomeCardViewBinding
@@ -24,7 +25,54 @@ class ProductAdapter(private var mList: List<Product>): RecyclerView.Adapter<Pro
                 holder.cardView.products = mList[position]
 
                 holder.cardView.addProduct.setOnClickListener {
-                    //  holder.cardView.addProduct.setBackgroundResource(R.drawable.ic_bookmark_filled)
+                }
+            }
+            is ProductAdapterViewHolder.HomeCardViewHolder -> {
+                var count = 1
+
+                holder.cardView.products = mList[position]
+                holder.cardView.cardViewPlus.setOnClickListener {
+                    holder.cardView.cardViewPlus.visibility = View.INVISIBLE
+                    holder.cardView.cardviewAddDelete.visibility = View.VISIBLE
+                }
+
+                holder.cardView.cardViewPlus.setOnClickListener {
+                    count++
+                    holder.cardView.cardViewCount.text = count.toString()
+                    if (count>1){
+                        holder.cardView.cardViewDelete.visibility= View.INVISIBLE
+                        holder.cardView.cardViewMinus.visibility= View.VISIBLE
+                    }
+                    else if (count==1){
+                        holder.cardView.cardViewDelete.visibility = View.VISIBLE
+                        holder.cardView.cardViewMinus.visibility = View.INVISIBLE
+                    }
+                    else{
+                        holder.cardView.cardViewPlus.visibility = View.VISIBLE
+                        holder.cardView.cardviewAddDelete.visibility = View.INVISIBLE
+                    }
+                }
+
+                holder.cardView.cardViewMinus.setOnClickListener {
+                    count--
+                    holder.cardView.cardViewCount.text = count.toString()
+                    if (count>1){
+                        holder.cardView.cardViewDelete.visibility= View.INVISIBLE
+                        holder.cardView.cardViewMinus.visibility= View.VISIBLE
+                    }
+                    else if (count==1){
+                        holder.cardView.cardViewDelete.visibility = View.VISIBLE
+                        holder.cardView.cardViewMinus.visibility = View.INVISIBLE
+                    }
+                    else{
+                        holder.cardView.cardViewPlus.visibility = View.VISIBLE
+                        holder.cardView.cardviewAddDelete.visibility = View.INVISIBLE
+                    }
+
+                }
+                holder.cardView.cardViewDelete.setOnClickListener {
+                    holder.cardView.cardViewPlus.visibility = View.VISIBLE
+                    holder.cardView.cardviewAddDelete.visibility = View.INVISIBLE
                 }
             }
             }

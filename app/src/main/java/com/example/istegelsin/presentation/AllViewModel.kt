@@ -1,8 +1,7 @@
-package com.example.istegelsin.presentation.category
+package com.example.istegelsin.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.istegelsin.data.local.entity.CategoryEntity
 import com.example.istegelsin.domain.AllUseCase
 import com.example.istegelsin.domain.BaseResult
 import com.example.istegelsin.domain.Categories

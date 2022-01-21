@@ -4,7 +4,7 @@ import com.example.istegelsin.data.remote.AllAPI
 import com.example.istegelsin.data.repository.CategoryRepository
 import com.example.istegelsin.data.repository.CategoryRepositoryImpl
 import com.example.istegelsin.domain.AllUseCase
-import com.example.istegelsin.presentation.category.CategoryViewModel
+import com.example.istegelsin.presentation.CategoryViewModel
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.androidx.viewmodel.dsl.viewModel

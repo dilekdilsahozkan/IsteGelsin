@@ -2,17 +2,16 @@ package com.example.istegelsin
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.lifecycleScope
 import com.example.istegelsin.databinding.ActivityMainBinding
-import com.example.istegelsin.databinding.HomeCardViewBinding
 import com.example.istegelsin.databinding.HomeCategoryOneBinding
 import com.example.istegelsin.databinding.HomeCategoryTwoBinding
 import com.example.istegelsin.domain.Categories
 import com.example.istegelsin.domain.HomogeneousRecyclerAdapter
 import com.example.istegelsin.domain.Product
-import com.example.istegelsin.presentation.category.CategoryViewModel
-import com.example.istegelsin.presentation.category.HomeUIState
+import com.example.istegelsin.presentation.CategoryViewModel
+import com.example.istegelsin.presentation.HomeUIState
 import com.example.istegelsin.presentation.product.ProductAdapter
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -32,6 +31,18 @@ class MainActivity : AppCompatActivity() {
 
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.searchViewHome.setOnQueryTextListener(object :
+            SearchView.OnQueryTextListener {
+            override fun onQueryTextChange(p0: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextSubmit(p0: String?): Boolean {
+                categoryViewModel.getProducts("","${p0}")
+                return false
+            }})
+
 
         lifecycleScope.launch {
 

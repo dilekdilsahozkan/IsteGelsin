@@ -21,7 +21,8 @@
             android:layout_width="120dp"
             android:layout_height="120dp"
             app:cardCornerRadius="10dp"
-            android:layout_weight="0.5">
+            android:layout_weight="0.5"
+            android:id="@+id/productCard">
 
             <ImageView
                 android:layout_width="match_parent"
@@ -45,7 +46,20 @@
                     android:id="@+id/addProduct"
                     android:layout_height="25dp"
                     android:src="@drawable/ic_add"
-                    android:layout_gravity="fill" />
+                    android:layout_gravity="fill"/>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:src="@drawable/ic_add"
+                        android:layout_gravity="fill"/>
+
+
+                </androidx.cardview.widget.CardView>
 
             </androidx.cardview.widget.CardView>
 
@@ -74,7 +88,7 @@
                         android:layout_height="20dp"
                         android:layout_gravity="center"
                         android:layout_marginStart="5dp"
-                        android:text="@{products.price}"
+                        android:text="@{String.valueOf(products.price)}"
                         android:textColor="@color/white"
                         android:textSize="12sp"
                         android:textStyle="bold" />

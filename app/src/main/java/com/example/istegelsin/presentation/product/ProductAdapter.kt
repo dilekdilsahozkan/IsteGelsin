@@ -3,14 +3,12 @@ package com.example.istegelsin.presentation.product
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.istegelsin.R
 import com.example.istegelsin.databinding.HomeCardViewBinding
-import com.example.istegelsin.domain.HomogeneousRecyclerAdapter
 import com.example.istegelsin.domain.Product
-import com.example.istegelsin.domain.ProductLists
-import com.example.istegelsin.presentation.category.ItemSelectedListener
 
 class ProductAdapter(private var mList: List<Product>): RecyclerView.Adapter<ProductAdapterViewHolder>() {
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductAdapterViewHolder {
         val binding = HomeCardViewBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ProductAdapterViewHolder.HomeCardViewHolder(binding)

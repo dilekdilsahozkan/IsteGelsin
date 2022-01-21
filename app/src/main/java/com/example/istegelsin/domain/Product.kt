@@ -5,8 +5,7 @@ data class Product(
 var id: String? = null,
 var name: String? = null,
 var imageUrl: String? = null,
-var stock: Int? = null,
-var price: Int? = null,
-var promotionDiscountPercentage: Int? = null,
+var price: Double = 0.0,
+var promotionDiscountPercentage: Double? = null,
 
 ): Entity()

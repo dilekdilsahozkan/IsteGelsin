@@ -40,8 +40,7 @@ class CategoryRepositoryImpl (private var allApi: AllAPI): CategoryRepository {
                     id = it.id,
                     name = it.name,
                     imageUrl = it.imageUrl,
-                    stock  = it.stock,
-                    price = it.price,
+                    price = it.price ?: 0.0,
                     promotionDiscountPercentage = it.promotionDiscountPercentage
                 )
             }?: listOf()

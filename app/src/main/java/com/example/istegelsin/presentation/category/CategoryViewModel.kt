@@ -52,8 +52,9 @@ class CategoryViewModel (private val homeUseCase: AllUseCase): ViewModel() {
 }
 
 sealed class HomeUIState{
-    data class Success(val homeEntity: CategoryEntity): HomeUIState()
+
     data class Error(val error: String?): HomeUIState()
+    //data class Success(val searchEntity: List<Product>): HomeUIState()
     data class PageSuccess(val categoryList:List<Categories>): HomeUIState()
     data class ProductSuccess(val productList:List<Product>): HomeUIState()
     object Idle: HomeUIState()
